@@ -8,10 +8,16 @@ import org.junit.Test;
 public class UserRegisterTest {
 
 	@Test
-	public void test() {
+	public void givenFirstName_isProper() {
 		UserRegister register = new UserRegister();
 		String actual = register.firstName("Brijesh");
 		Assert.assertEquals("Brijesh", actual);
 	}
-
+	
+	@Test
+	public void givenLastName_isProper() {
+		UserRegister register = new UserRegister();
+		String actual = register.lastName("Kulal");
+		Assert.assertEquals("Kulal", actual);
+	}
 }
