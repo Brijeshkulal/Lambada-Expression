@@ -34,4 +34,13 @@ public class UserRegisterTest {
 		String actual = register.phoneNumber("8289830020");
 		Assert.assertEquals("8289830020", actual);
 	}
+	
+	@Test
+	public void givenPassword_isProper() {
+		UserRegister register = new UserRegister();
+		String actual = register.password("Avvcttaa");
+		Assert.assertEquals("Avvcttaa", actual);
+	}
+	
+	
 }
