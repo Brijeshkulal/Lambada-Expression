@@ -5,67 +5,91 @@ import java.util.regex.Pattern;
 
 public class UserRegister {
 	
-	public String firstName(String firstName) {	
+	public String firstName(String firstName) throws InvalidException{	
 		Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
 		Matcher match = pattern.matcher(firstName);
-		if(match.find() && match.group().equals(firstName)) {
-			System.out.println("valid FirstName");	
+		try {
+			if(match.find() && match.group().equals(firstName)) {
+				System.out.println("Entered FirstName is valid\n");	
 			}
-		else {
-			System.out.println("invalid FirstName");
+			else {
+				throw new InvalidException("Entered FirstName is Invalid\n");
 			}
+		}
+		catch(InvalidException e) {
+			System.out.println("Exception occured :" + e);
+		}
 		return firstName;
-        }
+	}
 		
 	
-	public String lastName(String lastName) {	
+	public String lastName(String lastName) throws InvalidException{	
 		Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
 		Matcher match = pattern.matcher(lastName);
-		if(match.find() && match.group().equals(lastName)) {
-			System.out.println("valid LastName");	
+		try {
+			if(match.find() && match.group().equals(lastName)) {
+				System.out.println("Entered lastName is valid\n");	
 			}
-		else {
-			System.out.println("invalid lastName");
+			else {
+				throw new InvalidException("Entered lastName is Invalid\n");
 			}
+		}
+		catch(InvalidException e) {
+			System.out.println("Exception occured :" + e);
+		}
 		return lastName;
-        }
-	
-	public String emailId(String emailId) {	
-		Pattern pattern = Pattern.compile("^[a-zA-Z0-9+_.-]*[a-zA-Z0-9]?@[a-zA-Z0-9]+.([.][a-zA-Z]+)+$");
-		Matcher match = pattern.matcher(emailId);
-		if(match.find() && match.group().equals(emailId)) {
-			System.out.println("valid Email");	
-			}
-		else {
-			System.out.println("invalid Email");
-			}
-		return emailId;
-        }
-	
-	public String phoneNumber(String phoneNumber) {	
-		Pattern pattern = Pattern.compile("^(\\d{1,2}?)[- .]?\\d{9,10}$");
-		Matcher match = pattern.matcher(phoneNumber);
-		if(match.find() && match.group().equals(phoneNumber)) {
-			System.out.println("valid phoneNumber");	
-			}
-		else {
-			System.out.println("invalid phoneNumber");
-			}
-		return phoneNumber;
-        }
-	
-	public String password(String password) {
-		Pattern pattern = Pattern.compile("^[a-z](?=.*[A-Z])(?=.*[0-9])(?=.*[\\w\\d]).{8,}$");
-		Matcher match = pattern.matcher(password);
-		if(match.find() && match.group().equals(password)) {
-			System.out.println("valid password");	
-			}
-		else {
-			System.out.println("invalid password");
-			}
-		return password;
 	}
 	
+	public String emailId(String emailId) throws InvalidException{	
+		Pattern pattern = Pattern.compile("^[a-zA-Z0-9+_.-]*[a-zA-Z0-9]?@[a-zA-Z0-9]+.([.][a-zA-Z]+)+$");
+		Matcher match = pattern.matcher(emailId);
+		try {
+			if(match.find() && match.group().equals(emailId)) {
+				System.out.println("Entered Email is valid\n");	
+			}
+			else {
+				throw new InvalidException("Entered Email is Invalid\n");
+			}
+		}
+		catch(InvalidException e) {
+			System.out.println("Exception occured :" + e);
+		}
+		return emailId;
+    }
+	
+	public String phoneNumber(String phoneNumber) throws InvalidException{	
+		Pattern pattern = Pattern.compile("^(\\d{1,2}?)[- .]?\\d{9,10}$");
+		Matcher match = pattern.matcher(phoneNumber);
+		try {
+			if(match.find() && match.group().equals(phoneNumber)) {
+				System.out.println("Entered phoneNumber is valid\n");	
+			}
+			else {
+				throw new InvalidException("Entered phoneNumber is Invalid\n");
+			}
+		}
+		catch(InvalidException e) {
+			System.out.println("Exception occured :" + e);
+		}
+		return phoneNumber;
+	}
+	
+	public String password(String password) throws InvalidException{
+		Pattern pattern = Pattern.compile("^[a-z](?=.*[A-Z])(?=.*[0-9])(?=.*[\\w\\d]).{8,}$");
+		Matcher match = pattern.matcher(password);
+		try {
+			if(match.find() && match.group().equals(password)) {
+				System.out.println("Entered password is valid\n");	
+			}
+			else {
+				throw new InvalidException("Entered password is Invalid\n");
+			}
+		}
+		catch(InvalidException e) {
+			System.out.println("Exception occured :" + e);
+		}
+		return password;
+	}
 }
 
 	
